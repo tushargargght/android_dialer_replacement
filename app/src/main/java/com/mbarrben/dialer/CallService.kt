@@ -18,7 +18,7 @@ class CallService : InCallService() {
     super.onCallAdded(call)
     Log.i(LOG_TAG, "onCallAdded: $call")
     call.registerCallback(callCallback)
-    startActivity(Intent(this, CallActivity::class.java))
+    startActivity(Intent(this, CallActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
     CallManager.updateCall(call)
   }
 
